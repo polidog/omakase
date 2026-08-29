@@ -1,4 +1,5 @@
 name: omakase
+description: polidog's personal Omarchy setup.
 packages:
   aur:
     - claude-desktop
