@@ -59,6 +59,13 @@ parts:
   # It also carries the SUPER+A binding for Claude Desktop (see the apps part) -
   # hypr keeps personal overrides in this one file, so it cannot be split.
   herdr:
+    packages:
+      # herdr-prefix-ime-off exits quietly when either is missing, so without
+      # them Ctrl+B looks like it simply does nothing. Japanese input itself
+      # comes from the ime part.
+      pacman:
+        - fcitx5   # fcitx5-remote
+        - jq       # parses hyprctl activewindow -j
     omarchy:
       plugins:
         - url: https://github.com/fabean/omarchy-herdr.git
@@ -71,6 +78,17 @@ parts:
       files/herdr/config.toml: ~/.config/herdr/config.toml
       files/bin/herdr-prefix-ime-off: ~/.local/bin/herdr-prefix-ime-off
       files/hypr/bindings.lua: ~/.config/hypr/bindings.lua
+
+  # Japanese input. fcitx5 talks to Wayland's text-input protocol directly, so
+  # there is nothing to set beyond installing it and picking Mozc once.
+  ime:
+    packages:
+      pacman:
+        - fcitx5
+        - fcitx5-configtool
+        - fcitx5-gtk
+        - fcitx5-mozc
+        - fcitx5-qt
 
   # Everyday desktop applications, all from the AUR.
   apps:
