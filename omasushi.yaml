@@ -1,10 +1,8 @@
 # polidog's Omarchy setup, split into feature-sized parts.
 #   omasushi use polidog/omakase          # everything below
 #   omasushi use polidog/omakase/fonts    # just the Japanese font setup
-#
-# The herdr config that used to live here is now polidog/omasushi/herdr.
 name: omakase
-description: polidog's personal Omarchy setup - Japanese fonts, kitty, Omarchy plugins and desktop apps.
+description: polidog's personal Omarchy setup - Japanese fonts, kitty, herdr, Omarchy plugins and desktop apps.
 
 parts:
   # Japanese-ready fonts. The fontconfig rules pin the JP faces of Noto CJK,
@@ -46,14 +44,33 @@ parts:
           enable: true
         - url: https://github.com/devgtv/omarchy-docker.git
           enable: true
-        - url: https://github.com/fabean/omarchy-herdr.git
-          enable: true
         - url: https://github.com/polidog/omasushi.git
           enable: true
         - url: https://github.com/rmacy/omarchy-system-monitor.git
           enable: true
         - url: https://github.com/tmn73/omarchy-calendar.git
           enable: true
+
+  # herdr: tmux-style keybindings (prefix ctrl+b), the plugins they drive, and
+  # the Omarchy bar widget that shows agent status.
+  #
+  # bindings.lua binds Ctrl+B non-consuming so the prefix still reaches herdr,
+  # and calls herdr-prefix-ime-off to drop fcitx5 out of Japanese input first.
+  # It also carries the SUPER+A binding for Claude Desktop (see the apps part) -
+  # hypr keeps personal overrides in this one file, so it cannot be split.
+  herdr:
+    omarchy:
+      plugins:
+        - url: https://github.com/fabean/omarchy-herdr.git
+          enable: true
+    herdr:
+      plugins:
+        - source: polidog/herdr-gh-issue-label    # $issue sidebar row
+        - source: szrenwei/herdr-agent-metrics    # [[keys.command]] herdr-agent-metrics.refresh
+    files:
+      files/herdr/config.toml: ~/.config/herdr/config.toml
+      files/bin/herdr-prefix-ime-off: ~/.local/bin/herdr-prefix-ime-off
+      files/hypr/bindings.lua: ~/.config/hypr/bindings.lua
 
   # Everyday desktop applications, all from the AUR.
   apps:
