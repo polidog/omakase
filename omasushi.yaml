@@ -36,22 +36,7 @@ herdr:
   plugins:
     - source: polidog/herdr-gh-issue-label
     - source: szrenwei/herdr-agent-metrics
-claude:
-  skills: skills
-  commands: commands
 files:
-  files/hypr/bindings.lua: ~/.config/hypr/bindings.lua
-  files/bin/herdr-prefix-ime-off: ~/.local/bin/herdr-prefix-ime-off   # used by the CTRL+B binding
   files/herdr/config.toml: ~/.config/herdr/config.toml
   files/kitty/kitty.conf: ~/.config/kitty/kitty.conf
-  files/foot/foot.ini: ~/.config/foot/foot.ini
-  files/tmux/tmux.conf: ~/.config/tmux/tmux.conf
-  files/starship.toml: ~/.config/starship.toml
-  files/git/config: ~/.config/git/config
-  files/git/ignore: ~/.config/git/ignore
-  files/omarchy/shell.json: ~/.config/omarchy/shell.json
-  files/omarchy/hooks/post-update.d/install-voxtype.hook: ~/.config/omarchy/hooks/post-update.d/install-voxtype.hook
-  files/omarchy/hooks/post-update.d/setup-agent.hook: ~/.config/omarchy/hooks/post-update.d/setup-agent.hook
-  files/omarchy/hooks/post-update.d/setup-fingerprint.hook: ~/.config/omarchy/hooks/post-update.d/setup-fingerprint.hook
   files/fontconfig/conf.d: ~/.config/fontconfig/conf.d
-  files/nvim: ~/.config/nvim
