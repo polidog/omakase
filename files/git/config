@@ -30,7 +30,7 @@
 	email = polidogs@gmail.com
 [credential "https://github.com"]
 	helper = 
-	helper = !/home/polidog/.local/share/mise/installs/gh/2.98.0/gh_2.98.0_linux_amd64/bin/gh auth git-credential
+	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !/home/polidog/.local/share/mise/installs/gh/2.98.0/gh_2.98.0_linux_amd64/bin/gh auth git-credential
+	helper = !gh auth git-credential
