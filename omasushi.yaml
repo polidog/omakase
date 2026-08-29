@@ -1,0 +1,40 @@
+name: omakase
+packages:
+  aur:
+    - claude-desktop
+    - google-chrome
+    - google-cloud-cli
+    - hyprmoncfg
+    - rtk-bin
+    - slack-desktop
+    - ttf-hackgen
+    - ttf-udev-gothic
+omarchy:
+  font: UDEV Gothic NF
+  defaults:
+    agent: codex
+    browser: chrome
+    editor: nvim
+    terminal: kitty
+  plugins:
+    - url: https://github.com/Charlieras262/omarchy-pill-workspaces.git
+      enable: true
+    - url: https://github.com/crmne/omarchy-hyprmoncfg.git
+      enable: true
+    - url: https://github.com/devgtv/omarchy-docker.git
+      enable: true
+    - url: https://github.com/fabean/omarchy-herdr.git
+      enable: true
+    - url: https://github.com/polidog/omasushi.git
+      enable: true
+    - url: https://github.com/rmacy/omarchy-system-monitor.git
+      enable: true
+    - url: https://github.com/tmn73/omarchy-calendar.git
+      enable: true
+herdr:
+  plugins:
+    - source: polidog/herdr-gh-issue-label
+    - source: szrenwei/herdr-agent-metrics
+claude:
+  skills: skills
+  commands: commands
