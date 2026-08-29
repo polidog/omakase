@@ -1,42 +1,69 @@
+# polidog's Omarchy setup, split into feature-sized parts.
+#   omasushi use polidog/omakase          # everything below
+#   omasushi use polidog/omakase/fonts    # just the Japanese font setup
+#
+# The herdr config that used to live here is now polidog/omasushi/herdr.
 name: omakase
-description: polidog's personal Omarchy setup.
-packages:
-  aur:
-    - claude-desktop
-    - google-chrome
-    - google-cloud-cli
-    - hyprmoncfg
-    - rtk-bin
-    - slack-desktop
-    - ttf-hackgen
-    - ttf-udev-gothic
-omarchy:
-  font: UDEV Gothic NF
-  defaults:
-    agent: codex
-    browser: chrome
-    editor: nvim
-    terminal: kitty
-  plugins:
-    - url: https://github.com/Charlieras262/omarchy-pill-workspaces.git
-      enable: true
-    - url: https://github.com/crmne/omarchy-hyprmoncfg.git
-      enable: true
-    - url: https://github.com/devgtv/omarchy-docker.git
-      enable: true
-    - url: https://github.com/fabean/omarchy-herdr.git
-      enable: true
-    - url: https://github.com/polidog/omasushi.git
-      enable: true
-    - url: https://github.com/rmacy/omarchy-system-monitor.git
-      enable: true
-    - url: https://github.com/tmn73/omarchy-calendar.git
-      enable: true
-herdr:
-  plugins:
-    - source: polidog/herdr-gh-issue-label
-    - source: szrenwei/herdr-agent-metrics
-files:
-  files/herdr/config.toml: ~/.config/herdr/config.toml
-  files/kitty/kitty.conf: ~/.config/kitty/kitty.conf
-  files/fontconfig/conf.d: ~/.config/fontconfig/conf.d
+description: polidog's personal Omarchy setup - Japanese fonts, kitty, Omarchy plugins and desktop apps.
+
+parts:
+  # Japanese-ready fonts. The fontconfig rules pin the JP faces of Noto CJK,
+  # which plain charset matching would otherwise resolve to the Korean forms.
+  # They live in conf.d/ because `omarchy font set` overwrites fonts.conf.
+  fonts:
+    packages:
+      aur:
+        - ttf-hackgen
+        - ttf-udev-gothic
+    omarchy:
+      font: UDEV Gothic NF
+    files:
+      files/fontconfig/conf.d: ~/.config/fontconfig/conf.d
+
+  # kitty as the terminal. Wants the fonts part (font_family UDEV Gothic NF).
+  # `omarchy font set` / `theme set` rewrite kitty.conf in place and break the
+  # symlink - copy it back in and apply again when that happens.
+  kitty:
+    omarchy:
+      defaults:
+        terminal: kitty
+    files:
+      files/kitty/kitty.conf: ~/.config/kitty/kitty.conf
+
+  # Omarchy bar plugins and the default agent/editor.
+  omarchy:
+    packages:
+      aur:
+        - hyprmoncfg   # the CLI the omarchy-hyprmoncfg plugin drives
+    omarchy:
+      defaults:
+        agent: codex
+        editor: nvim
+      plugins:
+        - url: https://github.com/Charlieras262/omarchy-pill-workspaces.git
+          enable: true
+        - url: https://github.com/crmne/omarchy-hyprmoncfg.git
+          enable: true
+        - url: https://github.com/devgtv/omarchy-docker.git
+          enable: true
+        - url: https://github.com/fabean/omarchy-herdr.git
+          enable: true
+        - url: https://github.com/polidog/omasushi.git
+          enable: true
+        - url: https://github.com/rmacy/omarchy-system-monitor.git
+          enable: true
+        - url: https://github.com/tmn73/omarchy-calendar.git
+          enable: true
+
+  # Everyday desktop applications, all from the AUR.
+  apps:
+    packages:
+      aur:
+        - claude-desktop
+        - google-chrome
+        - google-cloud-cli
+        - rtk-bin          # LLM token-saving CLI proxy
+        - slack-desktop
+    omarchy:
+      defaults:
+        browser: chrome
