@@ -31,6 +31,9 @@ parts:
   # Omarchy bar plugins and the default agent/editor.
   omarchy:
     packages:
+      pacman:
+        - curl   # the social-poster providers talk to the networks with it
+        - jq
       aur:
         - hyprmoncfg   # the CLI the omarchy-hyprmoncfg plugin drives
     omarchy:
@@ -44,7 +47,14 @@ parts:
           enable: true
         - url: https://github.com/devgtv/omarchy-docker.git
           enable: true
-        - url: https://github.com/polidog/omasushi.git
+        - url: https://github.com/polidog/omarchy-omasushi.git
+          enable: true
+        # Accounts (and their credentials) stay on the machine, in
+        # ~/.config/omarchy/social-poster/accounts.json - nothing to sync.
+        # Set them up from the widget's right-click "Open setup".
+        - url: https://github.com/polidog/omarchy-plugin-social-poster.git
+          enable: true
+        - url: https://github.com/polidog/omarchy-plugin-windowmap.git
           enable: true
         - url: https://github.com/rmacy/omarchy-system-monitor.git
           enable: true
