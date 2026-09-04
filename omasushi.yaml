@@ -100,15 +100,14 @@ parts:
         - fcitx5-mozc
         - fcitx5-qt
 
-  # Everyday desktop applications, all from the AUR.
+  # Everyday desktop applications, all from the AUR. Work tooling is not part
+  # of a setup worth handing anyone, so it lives on the machine that needs it
+  # instead, in ~/.config/omasushi/omasushi.yaml.
   apps:
     packages:
       aur:
         - claude-desktop
         - google-chrome
-        - google-cloud-cli
-        - rtk-bin          # LLM token-saving CLI proxy
-        - slack-desktop
     omarchy:
       defaults:
         browser: chrome
