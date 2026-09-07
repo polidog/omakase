@@ -1,0 +1,12 @@
+# Japanese-ready fonts. The fontconfig rules pin the JP faces of Noto CJK,
+# which plain charset matching would otherwise resolve to the Korean forms.
+# They live in conf.d/ because `omarchy font set` overwrites fonts.conf.
+description: Japanese-ready fonts (UDEV Gothic NF, HackGen) with fontconfig rules for the JP faces
+packages:
+  aur:
+    - ttf-hackgen
+    - ttf-udev-gothic
+omarchy:
+  font: UDEV Gothic NF
+files:
+  files/fontconfig/conf.d: ~/.config/fontconfig/conf.d
