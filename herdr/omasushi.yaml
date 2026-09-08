@@ -1,0 +1,25 @@
+# herdr: tmux-style keybindings (prefix ctrl+b), the plugins they drive, and
+# the Omarchy bar widget that shows agent status.
+#
+# hypr/herdr.lua binds Ctrl+B non-consuming so the prefix still reaches herdr,
+# and calls herdr-prefix-ime-off to drop fcitx5 out of Japanese input first.
+description: herdr with tmux-style keybindings, its plugins, and the bar widget
+packages:
+  # herdr-prefix-ime-off exits quietly when either is missing, so without
+  # them Ctrl+B looks like it simply does nothing. Japanese input itself
+  # comes from the ime pack.
+  pacman:
+    - fcitx5   # fcitx5-remote
+    - jq       # parses hyprctl activewindow -j
+omarchy:
+  plugins:
+    - url: https://github.com/fabean/omarchy-herdr.git
+      enable: true
+herdr:
+  plugins:
+    - source: polidog/herdr-gh-issue-label    # $issue sidebar row
+    - source: szrenwei/herdr-agent-metrics    # [[keys.command]] herdr-agent-metrics.refresh
+hypr: hypr/herdr.lua
+files:
+  files/herdr/config.toml: ~/.config/herdr/config.toml
+  files/bin/herdr-prefix-ime-off: ~/.local/bin/herdr-prefix-ime-off

@@ -1,0 +1,10 @@
+# Japanese input. fcitx5 talks to Wayland's text-input protocol directly, so
+# there is nothing to set beyond installing it and picking Mozc once.
+description: Japanese input with fcitx5 and Mozc
+packages:
+  pacman:
+    - fcitx5
+    - fcitx5-configtool
+    - fcitx5-gtk
+    - fcitx5-mozc
+    - fcitx5-qt
