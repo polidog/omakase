@@ -17,6 +17,8 @@ omarchy:
       enable: true
     - url: https://github.com/devgtv/omarchy-docker.git
       enable: true
+    - url: https://github.com/nixfred/Pastey.git
+      enable: true
     - url: https://github.com/polidog/omarchy-omasushi.git
       enable: true
     # Accounts (and their credentials) stay on the machine, in

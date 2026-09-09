@@ -1,11 +1,12 @@
 # Everyday desktop applications, all from the AUR. Work tooling is not part
 # of a setup worth handing anyone, so it lives on the machine that needs it
 # instead, in ~/.config/omasushi/omasushi.yaml.
-description: Everyday desktop apps (Chrome as the browser, Claude Desktop on SUPER+A)
+description: Everyday desktop apps (Chrome as the browser, Zen alongside it, Claude Desktop on SUPER+A)
 packages:
   aur:
     - claude-desktop
     - google-chrome
+    - zen-browser-bin
 omarchy:
   defaults:
     browser: chrome
