@@ -1,0 +1,6 @@
+# 手で入れがちな開発用 CLI。AUR にあるものはここに書けば再インストールで忘れない。
+description: development CLIs (fly.io, worktrunk)
+packages:
+  aur:
+    - flyctl-bin
+    - worktrunk-bin
