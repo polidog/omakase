@@ -1,11 +1,10 @@
-# Omarchy bar plugins and the default agent/editor.
 description: Omarchy bar plugins (workspaces, monitors, docker, system monitor, ...) and the default agent/editor
 packages:
   pacman:
-    - curl   # the social-poster providers talk to the networks with it
+    - curl
     - jq
   aur:
-    - hyprmoncfg   # the CLI the omarchy-hyprmoncfg plugin drives
+    - hyprmoncfg
 omarchy:
   defaults:
     agent: codex
@@ -21,12 +20,11 @@ omarchy:
       enable: true
     - url: https://github.com/polidog/omarchy-omasushi.git
       enable: true
-    # Accounts (and their credentials) stay on the machine, in
-    # ~/.config/omarchy/social-poster/accounts.json - nothing to sync.
-    # Set them up from the widget's right-click "Open setup".
     - url: https://github.com/polidog/omarchy-plugin-social-poster.git
       enable: true
     - url: https://github.com/polidog/omarchy-plugin-windowmap.git
       enable: true
     - url: https://github.com/rmacy/omarchy-system-monitor.git
+      enable: true
+    - url: https://github.com/polidog/omarchy-abematv.git
       enable: true

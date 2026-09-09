@@ -2,4 +2,4 @@
 #   omasushi use polidog/omakase          # every pack
 #   omasushi use polidog/omakase/fonts    # just the Japanese font setup
 name: omakase
-description: polidog's Omarchy packs - Japanese fonts and input, kitty, herdr, Omarchy plugins and desktop apps.
+description: polidog's Omarchy packs - Japanese fonts and input, kitty, herdr, Omarchy plugins, desktop apps and development CLIs.
