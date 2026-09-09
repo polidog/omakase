@@ -1,5 +1,5 @@
 # Omarchy bar plugins and the default agent/editor.
-description: Omarchy bar plugins (workspaces, monitors, docker, system monitor, calendar, ...) and the default agent/editor
+description: Omarchy bar plugins (workspaces, monitors, docker, system monitor, ...) and the default agent/editor
 packages:
   pacman:
     - curl   # the social-poster providers talk to the networks with it
@@ -29,6 +29,4 @@ omarchy:
     - url: https://github.com/polidog/omarchy-plugin-windowmap.git
       enable: true
     - url: https://github.com/rmacy/omarchy-system-monitor.git
-      enable: true
-    - url: https://github.com/tmn73/omarchy-calendar.git
       enable: true
