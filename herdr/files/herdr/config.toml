@@ -101,6 +101,7 @@ rows = [
   ["state_icon", "workspace"],
   ["branch", "git_status"],
   ["$issue"],   # polidog.gh-issue-label: ブランチに対応する issue 番号とタイトル
+  ["$task"],    # /task run の進捗（計画済・要判断・PR レビュー待ちなど）
 ]
 
 [ui.sidebar.agents]
